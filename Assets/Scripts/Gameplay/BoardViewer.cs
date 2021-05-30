@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardViewer : MonoBehaviour
+public class BoardViewer : TetrisBehaviour
 {
-    // Coords: [11, 20]
-    const int maxX = 11;
-    const int maxY = 20;
-
     public Canvas UI;
     public GameObject gameElements;
 
@@ -15,7 +11,7 @@ public class BoardViewer : MonoBehaviour
 
     ViewTile[,] tiles = new ViewTile[maxX, maxY];
 
-    public void BuildBoard(Color32[,] colors)
+    public void BuildBoard(List<List<Color?>> colors)
     {
         for (int i = 0; i < maxX; i++)
             for (int j = 0; j < maxY; j++)
@@ -27,7 +23,7 @@ public class BoardViewer : MonoBehaviour
                     setting.x = i;
                     setting.y = j;
 
-                    setting.color = colors[i, j];
+                    setting.color = colors[j][i];
 
                     tile.SetActive(true);
                     tiles[i, j] = setting;
@@ -39,9 +35,21 @@ public class BoardViewer : MonoBehaviour
                     setting.x = i;
                     setting.y = j;
 
-                    setting.color = colors[i, j];
+                    setting.color = colors[j][i];
 
                     setting.Initialize();
                 }
+    }
+
+    public void ChangeTile(int tileChangedX, int tileChangedY, Color? color)
+    {
+        ViewTile setting = tiles[tileChangedX, tileChangedY];
+
+        setting.x = tileChangedX;
+        setting.y = tileChangedY;
+
+        setting.color = color;
+
+        setting.Initialize();
     }
 }

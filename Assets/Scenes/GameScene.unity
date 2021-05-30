@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 276189313}
+  - component: {fileID: 276189314}
   m_Layer: 0
   m_Name: App
   m_TagString: Untagged
@@ -156,6 +157,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &276189314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276189312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9662693e68ab1041943225ba2514f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData: {fileID: 356725907}
+  playerController: {fileID: 287889548}
+  boardController: {fileID: 287889547}
+  dropdownController: {fileID: 287889549}
+  boardViewer: {fileID: 1096620669}
 --- !u!1 &287889545
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +183,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 287889546}
+  - component: {fileID: 287889548}
+  - component: {fileID: 287889547}
+  - component: {fileID: 287889549}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -186,6 +207,42 @@ Transform:
   m_Father: {fileID: 276189313}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287889547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287889545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61210a163f8b2fa4ca10741562f9ef5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &287889548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287889545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d2a7d6c202f74458edbc2452bf0378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &287889549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287889545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19fdb515a7fdbd4483a00f1d7a98bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &356725905
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,8 +287,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 0
-  pieceX: 00000000000000000000000000000000
-  pieceY: 00000000000000000000000000000000
+  tileOffsetX: 3
+  tileOffsetY: 10
+  kickX: 0
+  kickY: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ad18628921007408324052a9faf88e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 2006540792}
+  gameElements: {fileID: 1915928937}
+  TilePrefab: {fileID: 4988781208828434345, guid: 903e77959e6510942ba0957c1ac972a3, type: 3}
 --- !u!1 &1155315731
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,10 +709,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

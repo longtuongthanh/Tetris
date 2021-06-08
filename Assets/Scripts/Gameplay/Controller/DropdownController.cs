@@ -6,8 +6,11 @@ using UnityEngine;
 public class DropdownController : TetrisController
 {
     float countdown = 0;
-    float dropstep = 2;
-    float reductionSpeed = 0.95f;
+    float dropstep = 1f;
+    float reductionSpeed = 0.9f;
+    public readonly List<uint> ScoreForRow = new List<uint> { 100, 300, 500, 800 };
+    public uint level = 1;
+    public const int maxLevel = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +32,40 @@ public class DropdownController : TetrisController
 
     public void SpeedUp()
     {
-        dropstep *= reductionSpeed;
+        if (level < maxLevel)
+        {
+            dropstep *= reductionSpeed;
+            app.highscoreView.flashTextDuration *= reductionSpeed;
+            level++;
+        }
+    }
+
+    public bool ClearRow(GameData data)
+    {
+        List<List<Color?>> grid = data.grid;
+
+        int rowCount = 0;
+        for (int i = 0; i < grid.Count; i++)
+            if (!grid[i].Any(item => item == null))
+            {
+                data.ClearRow(i);
+                rowCount++;
+                i--;
+            }
+        uint score = 0;
+        if (rowCount > 0)
+        {
+            if (rowCount <= 4)
+                score = ScoreForRow[rowCount - 1] * level;
+            else
+            {
+                score = ScoreForRow[3] * level;
+                Debug.LogError("Too many rows cleared at once (" + rowCount + "). Cheat detected.");
+            }
+            app.highscoreView.AddScore(score);
+        }
+
+        return rowCount != 0;
     }
 
     public void PushDown()
@@ -39,7 +75,7 @@ public class DropdownController : TetrisController
 
         if (!Move(data, 0, -1))
         {
-            var grid = data.grid;
+            List<List<Color?>> grid = data.grid;
 
             for (int i = 0; i < 4; i++)
             {
@@ -55,13 +91,7 @@ public class DropdownController : TetrisController
                     Debug.LogError("tetris piece not in bound.");
             }
 
-            bool hasClearedRow = false;
-            for (int i = 0; i < grid.Count; i++)
-                if (!grid[i].Any(item => item == null))
-                {
-                    data.ClearRow(i);
-                    hasClearedRow = true;
-                }
+            bool hasClearedRow = ClearRow(data);
             if (hasClearedRow)
                 SpeedUp();
 

@@ -17,6 +17,8 @@ public class AppGameplay : TetrisBehaviour
     public BoardController boardController;
     public DropdownController dropdownController;
     public BoardViewer boardViewer;
+    public HighscoreView highscoreView;
+    public ButtonView buttonView;
 
     private void NotifyToViewBoardChanged(int tileChangedX, int tileChangedY, Color? color)
     {

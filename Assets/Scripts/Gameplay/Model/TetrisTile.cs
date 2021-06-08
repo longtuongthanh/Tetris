@@ -8,7 +8,6 @@ public struct TetrisTile: ICloneable
     public int[] coordX;
     public int[] coordY;
     public TetrisTileType type;
-    public TetrisRotation rotation;
     public static TetrisTileType[] bag = new TetrisTileType[7] {
         TetrisTileType.I,
         TetrisTileType.L,
@@ -40,17 +39,10 @@ public struct TetrisTile: ICloneable
         T,
         O
     }
-    public enum TetrisRotation
-    {
-        Up,
-        Left,
-        Down,
-        Right,
-    }
+    
     public TetrisTile(TetrisTileType type)
     {
         this.type = type;
-        this.rotation = TetrisRotation.Up;
         switch (type)
         {
             case TetrisTileType.I:
@@ -100,9 +92,7 @@ public struct TetrisTile: ICloneable
 
         // invert X axis
         for (int i = 0; i < 4; i++)
-            coordY[i] = -coordY[i];
-
-        rotation++;
+            coordX[i] = -coordX[i];
     }
     public void RotateUpToRight()
     {
@@ -120,8 +110,6 @@ public struct TetrisTile: ICloneable
         // invert Y axis
         for (int i = 0; i < 4; i++)
             coordY[i] = -coordY[i];
-
-        rotation--;
     }
 
     public static TetrisTile GetNewTetrisTile()

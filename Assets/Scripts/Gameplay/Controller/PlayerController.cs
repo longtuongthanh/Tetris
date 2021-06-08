@@ -15,11 +15,9 @@ public class PlayerController : TetrisController
     {
         bool changed = false;
         GameData gameData = app.gameData;
-        BoardViewer boardViewer = app.boardViewer;
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             changed = true;
-            Move(gameData, -1, 0);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -38,5 +36,36 @@ public class PlayerController : TetrisController
         }
         if (changed)
             app.NotifyBoardChanged();
+    }
+
+    public void MoveLeft()
+    {
+        GameData gameData = app.gameData;
+        Move(gameData, -1, 0);
+        app.NotifyBoardChanged();
+    }
+    public void MoveRight()
+    {
+        GameData gameData = app.gameData;
+        Move(gameData, 1, 0);
+        app.NotifyBoardChanged();
+    }
+    public void MoveDown()
+    {
+        GameData gameData = app.gameData;
+        while (Move(gameData, 0, -1));
+        app.NotifyBoardChanged();
+    }
+    public void RotateLeft()
+    {
+        GameData gameData = app.gameData;
+        RotateWithKick(gameData, true);
+        app.NotifyBoardChanged();
+    }
+    public void RotateRight()
+    {
+        GameData gameData = app.gameData;
+        RotateWithKick(gameData, false);
+        app.NotifyBoardChanged();
     }
 }

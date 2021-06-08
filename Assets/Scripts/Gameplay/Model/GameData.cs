@@ -10,8 +10,8 @@ public class GameData : TetrisBehaviour
 
     public TetrisTile? _tile;
 
-    public int tileOffsetX = maxX / 2;
-    public int tileOffsetY = maxY - 2;
+    public int tileOffsetX;
+    public int tileOffsetY;
 
     public int kickX = 0;
     public int kickY = 0;
@@ -28,6 +28,8 @@ public class GameData : TetrisBehaviour
 
     public GameData()
     {
+        tileOffsetX = maxX / 2;
+        tileOffsetY = maxY - 2;
         grid = new List<List<Color?>>();
         for (int i = 0; i < maxY; i++)
             grid.Add(NewGridRow());

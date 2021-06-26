@@ -18,6 +18,7 @@ public class PlayerController : TetrisController
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             changed = true;
+            Move(gameData, -1, 0);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {

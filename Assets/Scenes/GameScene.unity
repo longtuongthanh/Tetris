@@ -489,8 +489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 0
-  tileOffsetX: 5
-  tileOffsetY: 18
+  tileOffsetX: 4
+  tileOffsetY: 15
   kickX: 0
   kickY: 0
 --- !u!1 &550539802

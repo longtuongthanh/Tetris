@@ -7,7 +7,7 @@ public class DropdownController : TetrisController
 {
     float countdown = 0;
     float dropstep = 1f;
-    float reductionSpeed = 0.9f;
+    float reductionSpeed = 0.95f;
     public readonly List<uint> ScoreForRow = new List<uint> { 100, 300, 500, 800 };
     public uint level = 1;
     public const int maxLevel = 20;

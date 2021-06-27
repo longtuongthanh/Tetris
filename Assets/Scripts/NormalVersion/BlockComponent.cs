@@ -14,28 +14,15 @@ public class BlockComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            transform.position += new Vector3(-1, 0, 0);
-            if (!IsValidMove())
-            {
-                transform.position -= new Vector3(-1, 0, 0);
-            }
-
+            MoveLeft();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            transform.position += new Vector3(1, 0, 0);
-            if (!IsValidMove())
-            {
-                transform.position -= new Vector3(1, 0, 0);
-            }
+            MoveRight();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), 90);
-            if (!IsValidMove())
-            {
-                transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), -90);
-            }
+            Rotate();
         }
 
         if (Time.time - previousTime > (Input.GetKey(KeyCode.DownArrow) ? fallTime / 10 : fallTime))
@@ -51,6 +38,32 @@ public class BlockComponent : MonoBehaviour
                 FindObjectOfType<Spawner>().SpawnNewBlock();
             }
             previousTime = Time.time;
+        }
+    }
+
+    public void Rotate()
+    {
+        transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), 90);
+        if (!IsValidMove())
+        {
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), -90);
+        }
+    }
+    public void MoveLeft()
+    {
+        transform.position += new Vector3(-1, 0, 0);
+        if (!IsValidMove())
+        {
+            transform.position -= new Vector3(-1, 0, 0);
+        }
+    }
+
+    public void MoveRight()
+    {
+        transform.position += new Vector3(1, 0, 0);
+        if (!IsValidMove())
+        {
+            transform.position -= new Vector3(1, 0, 0);
         }
     }
 

@@ -10,6 +10,7 @@ public class NormalTetrisController : MonoBehaviour
     public int currentLine;
     public Text scoreText;
     public Text lineText;
+    public BlockComponent currentBlock;
     public static NormalTetrisController Instance;
     private void Awake() 
     {
@@ -41,5 +42,20 @@ public class NormalTetrisController : MonoBehaviour
     {
         scoreText.text = currentScore.ToString();
         lineText.text = currentLine.ToString();
+    }
+
+    public void MoveLeftButton()
+    {
+        currentBlock?.MoveLeft();
+    }
+
+    public void MoveRightButton()
+    {
+        currentBlock?.MoveRight();
+    }
+
+    public void RotateButton()
+    {
+        currentBlock?.Rotate();
     }
 }

@@ -11,6 +11,6 @@ public class TetrisBehaviour : MonoBehaviour
     protected bool IsCoordInBound(int x, int y)
         => 0 <= x && x < maxX && 0 <= y && y < maxY;
 
-    public static readonly List<uint> ScoreForRow = new List<uint> { 100, 300, 500, 800 };
+    public static readonly List<int> ScoreForRow = new List<int> { 100, 300, 500, 800 };
     public const int maxLevel = 20;
 }

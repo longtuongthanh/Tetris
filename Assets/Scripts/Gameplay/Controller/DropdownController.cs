@@ -52,7 +52,7 @@ public class DropdownController : TetrisController
                 rowCount++;
                 i--;
             }
-        uint score = 0;
+        int score = 0;
         if (rowCount > 0)
         {
             if (rowCount <= 4)
@@ -62,7 +62,8 @@ public class DropdownController : TetrisController
                 score = ScoreForRow[3] * app.gameData.level;
                 Debug.LogError("Too many rows cleared at once (" + rowCount + "). Cheat detected.");
             }
-            app.scoreView.AddScore(score);
+            app.gameData.score += score;
+            app.gameData.lines += rowCount;
         }
 
         return rowCount != 0;
@@ -82,16 +83,13 @@ public class DropdownController : TetrisController
                 int x = data.tileOffsetX + tile.coordX[i];
                 int y = data.tileOffsetY + tile.coordY[i];
 
-                if (IsCoordInBound(x, y))
-                    if (grid[y][x] == null)
-                        grid[y][x] = TetrisTile.tileColor[tile.type];
-                    else
-                    {
-                        app.gameData.gameOver = true;
-                        //SceneManager.LoadScene("MenuScene");
-                    }
+                if (IsCoordInBound(x, y) && (grid[y][x] == null))
+                    grid[y][x] = TetrisTile.tileColor[tile.type];
                 else
-                    Debug.LogError("tetris piece not in bound.");
+                {
+                    app.gameData.gameOver = true;
+                    //SceneManager.LoadScene("MenuScene");
+                }
             }
 
             bool hasClearedRow = ClearRow(data);

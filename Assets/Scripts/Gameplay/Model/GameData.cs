@@ -16,7 +16,8 @@ public class GameData : TetrisBehaviour
     public int kickX = 0;
     public int kickY = 0;
 
-    public uint level = 1;
+    public int level = 1;
+    public int lines = 0;
     public bool gameOver = false;
 
     public TetrisTile tile

@@ -20,7 +20,7 @@ public struct TetrisTile: ICloneable
     public static List<TetrisTile> currentBag = new List<TetrisTile>();
     public static Dictionary<TetrisTileType, Color> tileColor = new Dictionary<TetrisTileType, Color>
     {
-        { TetrisTileType.I, new Color(1,0.5f,1,1) },
+        { TetrisTileType.I, new Color(1,0,0.5f,1) },
         { TetrisTileType.L, new Color(1,0,1,1) },
         { TetrisTileType.O, new Color(1,0,0,1) },
         { TetrisTileType.J, new Color(1,1,0,1) },

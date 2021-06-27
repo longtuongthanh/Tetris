@@ -444,7 +444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19fdb515a7fdbd4483a00f1d7a98bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
 --- !u!1 &356725905
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +492,8 @@ MonoBehaviour:
   tileOffsetY: 15
   kickX: 0
   kickY: 0
+  level: 1
+  gameOver: 0
 --- !u!1 &550539802
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 2006540792}
   gameElements: {fileID: 1915928937}
-  TilePrefab: {fileID: 4988781208828434345, guid: 903e77959e6510942ba0957c1ac972a3, type: 3}
+  TilePrefab: {fileID: 4988781208828434347, guid: 903e77959e6510942ba0957c1ac972a3, type: 3}
 --- !u!114 &1096620670
 MonoBehaviour:
   m_ObjectHideFlags: 0

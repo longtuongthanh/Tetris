@@ -20,7 +20,7 @@ public class HighscoreView : MonoBehaviour
     public void SetFlashTest(uint addedScore)
     {
         flashTextCountdown = flashTextDuration;
-        flashText.text = "+ " + addedScore.ToString();
+        //flashText.text = "+ " + addedScore.ToString();
     }
 
     public void AddScore(uint addedScore)
@@ -36,8 +36,8 @@ public class HighscoreView : MonoBehaviour
             flashTextCountdown -= Time.deltaTime;
         else
             flashTextCountdown = 0;
-        Color temp = flashText.color;
-        temp.a = flashTextCountdown / flashTextDuration;
-        flashText.color = temp;
+        //Color temp = flashText.color;
+        //temp.a = flashTextCountdown / flashTextDuration;
+        //flashText.color = temp;
     }
 }

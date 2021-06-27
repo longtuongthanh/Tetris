@@ -16,7 +16,7 @@ public class ButtonView : TetrisBehaviour
     {
         LeftButton.onClick.AddListener(app.playerController.MoveLeft);
         RightButton.onClick.AddListener(app.playerController.MoveRight);
-        LeftRotateButton.onClick.AddListener(app.playerController.RotateLeft);
+        //LeftRotateButton.onClick.AddListener(app.playerController.RotateLeft);
         RightRotateButton.onClick.AddListener(app.playerController.RotateRight);
         DownButton.onClick.AddListener(app.playerController.MoveDown);
     }

@@ -45,6 +45,7 @@ public class BlockComponent : MonoBehaviour
             {
                 transform.position += new Vector3(0, 1, 0);
                 this.enabled = false;
+                NormalTetrisController.Instance.AddBlockScore();
                 AddToGrid();
                 CheckLines();
                 FindObjectOfType<Spawner>().SpawnNewBlock();
@@ -87,6 +88,7 @@ public class BlockComponent : MonoBehaviour
         {
             if(HasLine(i))
             {
+                NormalTetrisController.Instance.AddLineScore();
                 DeleteLine(i);
                 RowDown(i);
             }

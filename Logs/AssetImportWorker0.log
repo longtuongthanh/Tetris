@@ -683,3 +683,34 @@ System memory in use after: 62.5 MB.
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1678.
 Total: 2.934600 ms (FindLiveObjects: 0.247600 ms CreateObjectMapping: 0.088700 ms MarkObjects: 2.570500 ms  DeleteObjects: 0.025900 ms)
 
+========================================================================
+Received Prepare
+The file 'ProjectSettings/EditorBuildSettings.asset' seems to have merge conflicts. Please open it in a text editor and fix the merge.
+
+Trying to reload asset but can't find object on disk
+
+The file 'UserSettings/EditorUserSettings.asset' seems to have merge conflicts. Please open it in a text editor and fix the merge.
+
+Trying to reload asset but can't find object on disk
+
+Registering precompiled user dll's ...
+Registered in 0.000989 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.863 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1206 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 62.8 MB.
+System memory in use after: 62.9 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1694.
+Total: 2.802200 ms (FindLiveObjects: 0.256600 ms CreateObjectMapping: 0.063200 ms MarkObjects: 2.458500 ms  DeleteObjects: 0.021600 ms)
+

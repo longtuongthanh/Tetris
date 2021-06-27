@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DropdownController : TetrisController
 {
     float countdown = 0;
     float dropstep = 1f;
     float reductionSpeed = 0.95f;
-    public readonly List<uint> ScoreForRow = new List<uint> { 100, 300, 500, 800 };
-    public uint level = 1;
-    public const int maxLevel = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +19,8 @@ public class DropdownController : TetrisController
     // Update is called once per frame
     void Update()
     {
+        if (app.gameData.gameOver)
+            return;
         if (countdown <= 0)
         {
             countdown += dropstep;
@@ -32,11 +32,11 @@ public class DropdownController : TetrisController
 
     public void SpeedUp()
     {
-        if (level < maxLevel)
+        if (app.gameData.level < maxLevel)
         {
             dropstep *= reductionSpeed;
-            app.highscoreView.flashTextDuration *= reductionSpeed;
-            level++;
+            app.scoreView.flashTextDuration *= reductionSpeed;
+            app.gameData.level++;
         }
     }
 
@@ -56,13 +56,13 @@ public class DropdownController : TetrisController
         if (rowCount > 0)
         {
             if (rowCount <= 4)
-                score = ScoreForRow[rowCount - 1] * level;
+                score = ScoreForRow[rowCount - 1] * app.gameData.level;
             else
             {
-                score = ScoreForRow[3] * level;
+                score = ScoreForRow[3] * app.gameData.level;
                 Debug.LogError("Too many rows cleared at once (" + rowCount + "). Cheat detected.");
             }
-            app.highscoreView.AddScore(score);
+            app.scoreView.AddScore(score);
         }
 
         return rowCount != 0;
@@ -86,7 +86,10 @@ public class DropdownController : TetrisController
                     if (grid[y][x] == null)
                         grid[y][x] = TetrisTile.tileColor[tile.type];
                     else
-                        ;// Lose the game
+                    {
+                        app.gameData.gameOver = true;
+                        //SceneManager.LoadScene("MenuScene");
+                    }
                 else
                     Debug.LogError("tetris piece not in bound.");
             }

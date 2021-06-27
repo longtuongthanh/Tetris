@@ -373,7 +373,7 @@ MonoBehaviour:
   boardController: {fileID: 287889547}
   dropdownController: {fileID: 287889549}
   boardViewer: {fileID: 1096620669}
-  highscoreView: {fileID: 1096620670}
+  scoreView: {fileID: 1096620670}
   buttonView: {fileID: 1096620671}
 --- !u!1 &287889545
 GameObject:
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd75c2c60a8a1744ebe3b0e387ff1a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
+  score: 0
   tileOffsetX: 4
   tileOffsetY: 15
   kickX: 0

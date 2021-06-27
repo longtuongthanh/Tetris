@@ -8,11 +8,11 @@ public struct TetrisTile: ICloneable
     public int[] coordX;
     public int[] coordY;
     public TetrisTileType type;
-    public static TetrisTileType[] bag = new TetrisTileType[7] {
+    public static readonly TetrisTileType[] bag = new TetrisTileType[7] {
         TetrisTileType.I,
         TetrisTileType.L,
         TetrisTileType.O,
-        TetrisTileType.revL,
+        TetrisTileType.J,
         TetrisTileType.S,
         TetrisTileType.T,
         TetrisTileType.Z
@@ -23,7 +23,7 @@ public struct TetrisTile: ICloneable
         { TetrisTileType.I, new Color(1,0.5f,1,1) },
         { TetrisTileType.L, new Color(1,0,1,1) },
         { TetrisTileType.O, new Color(1,0,0,1) },
-        { TetrisTileType.revL, new Color(1,0,1,1) },
+        { TetrisTileType.J, new Color(1,1,0,1) },
         { TetrisTileType.S, new Color(0,1,1,1) },
         { TetrisTileType.T, new Color(0,0,1,1) },
         { TetrisTileType.Z, new Color(0,1,0,1) }
@@ -33,7 +33,7 @@ public struct TetrisTile: ICloneable
     {
         I,
         L,
-        revL,
+        J,
         Z,
         S,
         T,
@@ -53,7 +53,7 @@ public struct TetrisTile: ICloneable
                 coordX = new int[4] { 1, 1, 0, -1 };
                 coordY = new int[4] { 1, 0, 0, 0 };
                 break;
-            case TetrisTileType.revL:
+            case TetrisTileType.J:
                 coordX = new int[4] { -1, 1, 0, -1 };
                 coordY = new int[4] { 1, 0, 0, 0 };
                 break;

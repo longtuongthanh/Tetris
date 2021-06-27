@@ -17,27 +17,11 @@ public class AppGameplay : TetrisBehaviour
     public BoardController boardController;
     public DropdownController dropdownController;
     public BoardViewer boardViewer;
-    public HighscoreView highscoreView;
+    public ScoreView scoreView;
     public ButtonView buttonView;
-
-    private void NotifyToViewBoardChanged(int tileChangedX, int tileChangedY, Color? color)
-    {
-        boardViewer.ChangeTile(tileChangedX, tileChangedY, color);
-    }
 
     public void NotifyBoardChanged()
     {
         boardController.IdentifyChangeAndNotify();
-    }
-
-    public void NotifyBoardDataChanged(List<List<Color?>> previous, List<List<Color?>> now)
-    {
-        // assumes same dimensions
-        for (int i = 0; i < maxX; i++)
-            for (int j = 0; j < maxY; j++)
-            {
-                if (previous[j][i] != now[j][i])
-                    NotifyToViewBoardChanged(i, j, now[j][i]);
-            }
     }
 }

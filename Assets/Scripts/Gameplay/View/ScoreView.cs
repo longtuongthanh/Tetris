@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HighscoreView : MonoBehaviour
+public class ScoreView : MonoBehaviour
 {
     public Text scoreText;
     public Text flashText;
@@ -17,7 +17,7 @@ public class HighscoreView : MonoBehaviour
         scoreText.text = this.score.ToString();
     }
 
-    public void SetFlashTest(uint addedScore)
+    private void SetFlashTest(uint addedScore)
     {
         flashTextCountdown = flashTextDuration;
         flashText.text = "+ " + addedScore.ToString();

@@ -90,6 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
-  baseX: 101
-  baseY: 201
-  size: 73
+  baseX: 0
+  baseY: 0
+  size: 0

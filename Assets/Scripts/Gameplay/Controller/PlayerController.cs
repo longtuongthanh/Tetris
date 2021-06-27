@@ -13,6 +13,9 @@ public class PlayerController : TetrisController
     // Update is called once per frame
     void Update()
     {
+        if (app.gameData.gameOver)
+            return;
+
         bool changed = false;
         GameData gameData = app.gameData;
         if (Input.GetKeyDown(KeyCode.LeftArrow))

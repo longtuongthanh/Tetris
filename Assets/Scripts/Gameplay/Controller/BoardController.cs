@@ -30,7 +30,12 @@ public class BoardController : TetrisController
                 currentBoard[y][x] = TetrisTile.tileColor[tile.type];
         }
 
-        app.NotifyBoardDataChanged(previousBoard, currentBoard);
+        for (int i = 0; i < maxX; i++)
+            for (int j = 0; j < maxY; j++)
+            {
+                if (previousBoard[j][i] != currentBoard[j][i])
+                    app.boardViewer.ChangeTile(i, j, currentBoard[j][i]);
+            }
 
         previousBoard = currentBoard;
     }

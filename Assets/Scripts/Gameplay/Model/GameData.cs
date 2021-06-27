@@ -6,15 +6,18 @@ using UnityEngine;
 public class GameData : TetrisBehaviour
 {
     public List<List<Color?>> grid;
-    public int Score;
+    public int score;
 
-    public TetrisTile? _tile;
+    private TetrisTile? _tile;
 
     public int tileOffsetX;
     public int tileOffsetY;
 
     public int kickX = 0;
     public int kickY = 0;
+
+    public uint level = 1;
+    public bool gameOver = false;
 
     public TetrisTile tile
     {

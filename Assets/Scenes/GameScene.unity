@@ -198,7 +198,7 @@ MonoBehaviour:
   boardController: {fileID: 287889547}
   dropdownController: {fileID: 287889549}
   boardViewer: {fileID: 1096620669}
-  highscoreView: {fileID: 1096620670}
+  scoreView: {fileID: 734451576}
   buttonView: {fileID: 1096620671}
 --- !u!1 &287889545
 GameObject:
@@ -269,7 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19fdb515a7fdbd4483a00f1d7a98bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
 --- !u!1 &356725905
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,11 +312,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd75c2c60a8a1744ebe3b0e387ff1a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
+  score: 0
   tileOffsetX: 4
   tileOffsetY: 15
   kickX: 0
   kickY: 0
+  level: 1
+  gameOver: 0
 --- !u!114 &449646501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 970054145981526792, guid: 078377ba1d07a1046b3e8cbc9b9a1be0,
@@ -435,6 +436,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &734451575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 67536547304242440, guid: ffa6238f482eda346ad9b7ff6b7df7b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1596659496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &734451576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734451575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4e5ed4023a659469a39822f1f7bd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 74592567}
+  flashText: {fileID: 0}
+  flashTextDuration: 2
+  flashTextCountdown: 0
 --- !u!224 &804696577 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 67536546151595381, guid: ffa6238f482eda346ad9b7ff6b7df7b6,
@@ -639,7 +662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 2006540792}
   gameElements: {fileID: 1915928937}
-  TilePrefab: {fileID: 4988781208828434345, guid: 903e77959e6510942ba0957c1ac972a3,
+  TilePrefab: {fileID: 4988781208828434347, guid: 903e77959e6510942ba0957c1ac972a3,
     type: 3}
 --- !u!114 &1096620670
 MonoBehaviour:

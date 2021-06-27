@@ -9,5 +9,8 @@ public class TetrisBehaviour : MonoBehaviour
     protected const int maxX = 9;
     protected const int maxY = 17;
     protected bool IsCoordInBound(int x, int y)
-        => 0 <= x && x < maxX && 0 <= y && y < maxY; 
+        => 0 <= x && x < maxX && 0 <= y && y < maxY;
+
+    public static readonly List<uint> ScoreForRow = new List<uint> { 100, 300, 500, 800 };
+    public const int maxLevel = 20;
 }

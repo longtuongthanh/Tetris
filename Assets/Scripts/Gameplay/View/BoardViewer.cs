@@ -7,7 +7,7 @@ public class BoardViewer : TetrisBehaviour
     public Canvas UI;
     public GameObject gameElements;
 
-    public GameObject TilePrefab;
+    public ViewTile TilePrefab;
 
     ViewTile[,] tiles = new ViewTile[maxX, maxY];
 
@@ -17,27 +17,26 @@ public class BoardViewer : TetrisBehaviour
             for (int j = 0; j < maxY; j++)
                 if (tiles[i, j] == null)
                 {
-                    GameObject tile = Instantiate(TilePrefab, UI.transform);
-                    ViewTile setting = tile.GetComponent<ViewTile>();
+                    ViewTile tile = Instantiate(TilePrefab, UI.transform);
 
-                    setting.x = i;
-                    setting.y = j;
+                    tile.x = i;
+                    tile.y = j;
 
-                    setting.color = colors[j][i];
+                    tile.color = colors[j][i];
 
-                    tile.SetActive(true);
-                    tiles[i, j] = setting;
+                    tile.gameObject.SetActive(true);
+                    tiles[i, j] = tile;
                 }
                 else
                 {
-                    ViewTile setting = tiles[i, j];
+                    ViewTile tile = tiles[i, j];
 
-                    setting.x = i;
-                    setting.y = j;
+                    tile.x = i;
+                    tile.y = j;
 
-                    setting.color = colors[j][i];
+                    tile.color = colors[j][i];
 
-                    setting.Initialize();
+                    tile.Initialize();
                 }
     }
 

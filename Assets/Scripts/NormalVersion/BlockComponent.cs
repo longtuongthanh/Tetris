@@ -5,41 +5,10 @@ using UnityEngine;
 public class BlockComponent : MonoBehaviour
 {
     public Vector3 rotationPoint;
-    public float fallTime;
     public static int height = 20;
     public static int width = 10;
     private float previousTime;
     private static Transform[,] grid = new Transform[width, height];
-    private void Update() 
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            MoveLeft();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveRight();
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            Rotate();
-        }
-
-        if (Time.time - previousTime > (Input.GetKey(KeyCode.DownArrow) ? fallTime / 10 : fallTime))
-        {
-            transform.position += new Vector3(0, -1, 0);
-            if (!IsValidMove())
-            {
-                transform.position += new Vector3(0, 1, 0);
-                this.enabled = false;
-                NormalTetrisController.Instance.AddBlockScore();
-                AddToGrid();
-                CheckLines();
-                FindObjectOfType<Spawner>().SpawnNewBlock();
-            }
-            previousTime = Time.time;
-        }
-    }
 
     public void Rotate()
     {
@@ -48,6 +17,29 @@ public class BlockComponent : MonoBehaviour
         {
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), -90);
         }
+    }
+    public void MoveToEnd()
+    {
+        while (MoveDown())
+        {
+
+        }
+    }
+    public bool MoveDown()
+    {
+        transform.position += new Vector3(0, -1, 0);
+        if (!IsValidMove())
+        {
+            transform.position += new Vector3(0, 1, 0);
+            this.enabled = false;
+            NormalTetrisController.Instance.AddBlockScore();
+            AddToGrid();
+            CheckLines();
+            FindObjectOfType<Spawner>().SpawnNewBlock();
+            return false;
+        }
+        return true;
+
     }
     public void MoveLeft()
     {

@@ -62,7 +62,7 @@ public class DropdownController : TetrisController
                 score = ScoreForRow[3] * app.gameData.level;
                 Debug.LogError("Too many rows cleared at once (" + rowCount + "). Cheat detected.");
             }
-            app.scoreView.AddScore(score);
+            app.gameData.score += score;
             app.gameData.lines += rowCount;
         }
 

@@ -193,12 +193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9662693e68ab1041943225ba2514f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameData: {fileID: 356725907}
+  gameData: {fileID: 1155315733}
   playerController: {fileID: 287889548}
   boardController: {fileID: 287889547}
   dropdownController: {fileID: 287889549}
   boardViewer: {fileID: 1096620669}
-  scoreView: {fileID: 0}
+  scoreView: {fileID: 1096620670}
   buttonView: {fileID: 1096620671}
 --- !u!1 &287889545
 GameObject:
@@ -269,57 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19fdb515a7fdbd4483a00f1d7a98bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &356725905
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 356725906}
-  - component: {fileID: 356725907}
-  m_Layer: 0
-  m_Name: GameData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &356725906
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356725905}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1155315732}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &356725907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356725905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd75c2c60a8a1744ebe3b0e387ff1a10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  tileOffsetX: 4
-  tileOffsetY: 15
-  kickX: 0
-  kickY: 0
-  level: 1
-  lines: 0
-  gameOver: 0
 --- !u!114 &449646501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 970054145981526792, guid: 078377ba1d07a1046b3e8cbc9b9a1be0,
@@ -687,6 +636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1155315732}
+  - component: {fileID: 1155315733}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -704,11 +654,30 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 356725906}
+  m_Children: []
   m_Father: {fileID: 276189313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155315733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155315731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd75c2c60a8a1744ebe3b0e387ff1a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  tileOffsetX: 4
+  tileOffsetY: 15
+  kickX: 0
+  kickY: 0
+  level: 1
+  lines: 0
+  gameOver: 0
 --- !u!1001 &1164101008
 PrefabInstance:
   m_ObjectHideFlags: 0

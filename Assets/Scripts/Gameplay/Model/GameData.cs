@@ -22,6 +22,7 @@ public class GameData : TetrisBehaviour
     public float flashTextDuration;
     public float reductionSpeed;
 
+    public bool paused = false;
     public bool gameOver = false;
 
     public TetrisTile tile
@@ -105,6 +106,7 @@ public class GameData : TetrisBehaviour
         reductionSpeed = 0.95f;
         flashTextDuration = 2f;
         gameOver = false;
+        paused = false;
         grid = new List<List<Color?>>();
         for (int i = 0; i < maxY; i++)
             grid.Add(NewGridRow());

@@ -42,6 +42,12 @@ public class PlayerController : TetrisController
             app.NotifyBoardChanged();
     }
 
+    public void OnPauseClick()
+    {
+        var pausePanel = app.buttonView.PausePanel;
+        pausePanel.SetActive(!pausePanel.activeSelf);
+        app.gameData.paused = true;
+    }
     public void MoveLeft()
     {
         GameData gameData = app.gameData;

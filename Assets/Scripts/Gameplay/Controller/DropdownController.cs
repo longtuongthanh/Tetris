@@ -21,6 +21,8 @@ public class DropdownController : TetrisController
         if (data.gameOver)
             //return;
             data.ResetData();
+        if (data.paused)
+            return;
         if (countdown <= 0)
         {
             countdown += data.dropstep;

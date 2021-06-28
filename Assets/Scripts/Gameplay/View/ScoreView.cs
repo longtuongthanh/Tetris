@@ -9,7 +9,6 @@ public class ScoreView : TetrisBehaviour
     public Text flashText;
     public Text levelText;
     public Text lineText;
-    public float flashTextDuration = 2f;
     public float flashTextCountdown = 0f;
     int score = 0;
 
@@ -21,7 +20,7 @@ public class ScoreView : TetrisBehaviour
 
     private void SetFlashTest(int addedScore)
     {
-        flashTextCountdown = flashTextDuration;
+        flashTextCountdown = app.gameData.flashTextDuration;
         flashText.text = "+ " + addedScore.ToString();
     }
 
@@ -40,7 +39,7 @@ public class ScoreView : TetrisBehaviour
             flashTextCountdown = 0;
 
         Color temp = flashText.color;
-        temp.a = flashTextCountdown / flashTextDuration;
+        temp.a = flashTextCountdown / app.gameData.flashTextDuration;
         flashText.color = temp;
 
         if (score != app.gameData.score)

@@ -16,8 +16,12 @@ public class GameData : TetrisBehaviour
     public int kickX = 0;
     public int kickY = 0;
 
-    public int level = 1;
-    public int lines = 0;
+    public int level;
+    public int lines;
+    public float dropstep;
+    public float flashTextDuration;
+    public float reductionSpeed;
+
     public bool gameOver = false;
 
     public TetrisTile tile
@@ -32,11 +36,27 @@ public class GameData : TetrisBehaviour
 
     public GameData()
     {
+        score = 0;
+        lines = 0;
+        level = 1;
+        dropstep = 1f;
+        flashTextDuration = 2f;
+        reductionSpeed = 0.95f;
         tileOffsetX = maxX / 2;
         tileOffsetY = maxY - 2;
         grid = new List<List<Color?>>();
         for (int i = 0; i < maxY; i++)
             grid.Add(NewGridRow());
+    }
+    
+    public void SpeedUp()
+    {
+        if (level < maxLevel)
+        {
+            dropstep *= reductionSpeed;
+            flashTextDuration *= reductionSpeed;
+            level++;
+        }
     }
 
     public void ResetKick()
@@ -74,5 +94,21 @@ public class GameData : TetrisBehaviour
                 item => new List<Color?>(item)
             )
         );
+    }
+
+    public void ResetData()
+    {
+        score = 0;
+        lines = 0;
+        level = 1;
+        dropstep = 1f;
+        reductionSpeed = 0.95f;
+        flashTextDuration = 2f;
+        gameOver = false;
+        grid = new List<List<Color?>>();
+        for (int i = 0; i < maxY; i++)
+            grid.Add(NewGridRow());
+        TetrisTile.ResetBag();
+        GetNewTetrisTile();
     }
 }

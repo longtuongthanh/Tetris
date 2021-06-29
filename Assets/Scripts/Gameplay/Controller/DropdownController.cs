@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class DropdownController : TetrisController
 {
     float countdown = 0;
-    float dropstep = 1f;
-    float reductionSpeed = 0.95f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,25 +17,19 @@ public class DropdownController : TetrisController
     // Update is called once per frame
     void Update()
     {
-        if (app.gameData.gameOver)
+        var data = app.gameData;
+        if (data.gameOver)
+            //return;
+            data.ResetData();
+        if (data.paused)
             return;
         if (countdown <= 0)
         {
-            countdown += dropstep;
+            countdown += data.dropstep;
             PushDown();
             app.NotifyBoardChanged();
         }
         countdown -= Time.deltaTime;
-    }
-
-    public void SpeedUp()
-    {
-        if (app.gameData.level < maxLevel)
-        {
-            dropstep *= reductionSpeed;
-            app.scoreView.flashTextDuration *= reductionSpeed;
-            app.gameData.level++;
-        }
     }
 
     public bool ClearRow(GameData data)
@@ -94,7 +86,7 @@ public class DropdownController : TetrisController
 
             bool hasClearedRow = ClearRow(data);
             if (hasClearedRow)
-                SpeedUp();
+                data.SpeedUp();
 
             data.GetNewTetrisTile();
         }

@@ -6,17 +6,19 @@ using UnityEngine.UI;
 public class ButtonView : TetrisBehaviour
 {
     public Button LeftButton;
-    public Button RightButton;
-    public Button LeftRotateButton;
+    public Button RightButton;  
     public Button RightRotateButton;
     public Button DownButton;
+
+    public Button PauseButton;
+    public GameObject PausePanel;
 
     // Start is called before the first frame update
     void Start()
     {
         LeftButton.onClick.AddListener(app.playerController.MoveLeft);
         RightButton.onClick.AddListener(app.playerController.MoveRight);
-        //LeftRotateButton.onClick.AddListener(app.playerController.RotateLeft);
+        PauseButton.onClick.AddListener(app.playerController.OnPauseClick);
         RightRotateButton.onClick.AddListener(app.playerController.RotateRight);
         DownButton.onClick.AddListener(app.playerController.MoveDown);
     }

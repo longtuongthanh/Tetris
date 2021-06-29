@@ -116,10 +116,7 @@ public struct TetrisTile: ICloneable
     {
         if (currentBag.Count <= 0)
         {
-            foreach (TetrisTileType item in bag)
-            {
-                currentBag.Add(new TetrisTile(item));
-            }
+            ResetBag();
         }
 
         int index = UnityEngine.Random.Range(0, currentBag.Count);
@@ -127,6 +124,15 @@ public struct TetrisTile: ICloneable
         currentBag.RemoveAt(index);
 
         return result;
+    }
+
+    public static void ResetBag()
+    {
+        currentBag.Clear();
+        foreach (TetrisTileType item in bag)
+        {
+            currentBag.Add(new TetrisTile(item));
+        }
     }
 
     public object Clone()

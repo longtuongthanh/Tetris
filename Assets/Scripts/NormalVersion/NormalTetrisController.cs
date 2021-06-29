@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class NormalTetrisController : MonoBehaviour
 {
+    public int fakeLoop;
     public int scorePerBlock;
     public int scorePerLine;
     public int currentScore;
@@ -11,21 +12,29 @@ public class NormalTetrisController : MonoBehaviour
     public Text scoreText;
     public Text lineText;
     public float fallTime;
-    public float fastFallTime;
     public float fallTimeCount;
     public bool isPauseGame = false;
     public GameObject pausePanel;
+    public GameObject gameOverPanel;
     public BlockComponent currentBlock;
     public static NormalTetrisController Instance;
+    private List<int> list;
     private void Awake() 
     {
         if (Instance == null) Instance =  this;
+        list = new List<int>();
         InitGame();
     }
     private void Update() 
     {
+        for (int i = 0; i<fakeLoop; i++)
+        {
+            list.Add(1);
+        }
         if (!isPauseGame)
         {
+            
+
             fallTimeCount += Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
@@ -46,6 +55,7 @@ public class NormalTetrisController : MonoBehaviour
             {
                 currentBlock.Rotate();
             }
+
         }    
 
         if (fallTimeCount > fallTime)
@@ -55,8 +65,16 @@ public class NormalTetrisController : MonoBehaviour
             //currentBlock.mo
         }
         
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
+        
+    }
 
-
+    private void CheckLose()
+    {
+        //var grid = BlockComponent.
     }
 
     public void InitGame()
@@ -65,6 +83,12 @@ public class NormalTetrisController : MonoBehaviour
         currentLine = 0;
         fallTimeCount = 0.0f;
         UpdateUI();
+    }
+    public void RestartGame()
+    {
+        currentBlock = null;
+        BlockComponent.ClearGrid();
+        FindObjectOfType<Spawner>().SpawnNewBlock();
     }
     public void PauseGame()
     {

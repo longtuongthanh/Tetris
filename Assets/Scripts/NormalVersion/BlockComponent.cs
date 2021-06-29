@@ -18,6 +18,14 @@ public class BlockComponent : MonoBehaviour
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), -90);
         }
     }
+    public static void ClearGrid()
+    {
+        foreach(var cell in grid)
+        {
+            Destroy(cell.gameObject);
+        }
+        grid = new Transform[width, height];
+    }
     public void MoveToEnd()
     {
         while (MoveDown())
@@ -25,6 +33,14 @@ public class BlockComponent : MonoBehaviour
 
         }
     }
+    public bool IsLose()
+    {
+        for (int x = 0; x < width; x++)
+        {
+        }
+        return false;
+    }
+    
     public bool MoveDown()
     {
         transform.position += new Vector3(0, -1, 0);

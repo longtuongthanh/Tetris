@@ -19,8 +19,8 @@ public class DropdownController : TetrisController
     {
         var data = app.gameData;
         if (data.gameOver)
-            //return;
-            data.ResetData();
+            return;
+            //data.ResetData();
         if (data.paused)
             return;
         if (countdown <= 0)
@@ -80,6 +80,7 @@ public class DropdownController : TetrisController
                 else
                 {
                     app.gameData.gameOver = true;
+                    app.NotifyGameOver();
                     //SceneManager.LoadScene("MenuScene");
                 }
             }

@@ -12,6 +12,8 @@ public class ButtonView : TetrisBehaviour
 
     public Button PauseButton;
     public GameObject PausePanel;
+    public Button RestartButton;
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class ButtonView : TetrisBehaviour
         LeftButton.onClick.AddListener(app.playerController.MoveLeft);
         RightButton.onClick.AddListener(app.playerController.MoveRight);
         PauseButton.onClick.AddListener(app.playerController.OnPauseClick);
+        RestartButton.onClick.AddListener(app.playerController.OnRetryClick);
         RightRotateButton.onClick.AddListener(app.playerController.RotateRight);
         DownButton.onClick.AddListener(app.playerController.MoveDown);
     }
@@ -27,5 +30,10 @@ public class ButtonView : TetrisBehaviour
     void Update()
     {
         
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
     }
 }

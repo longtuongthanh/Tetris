@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BoardViewer : TetrisBehaviour
 {
-    public Canvas UI;
     public GameObject gameElements;
 
     public ViewTile TilePrefab;
+    public GameObject TileRoot;
 
     ViewTile[,] tiles = new ViewTile[maxX, maxY];
 
@@ -17,7 +17,7 @@ public class BoardViewer : TetrisBehaviour
             for (int j = 0; j < maxY; j++)
                 if (tiles[i, j] == null)
                 {
-                    ViewTile tile = Instantiate(TilePrefab, UI.transform);
+                    ViewTile tile = Instantiate(TilePrefab, TileRoot.transform);
 
                     tile.x = i;
                     tile.y = j;

@@ -24,4 +24,9 @@ public class AppGameplay : TetrisBehaviour
     {
         boardController.IdentifyChangeAndNotify();
     }
+
+    public void NotifyGameOver()
+    {
+        buttonView.GameOver();
+    }
 }

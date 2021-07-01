@@ -27,7 +27,8 @@ public class ScoreView : TetrisBehaviour
     public void AddScore(int addedScore)
     {
         this.score += addedScore;
-        SetFlashTest(addedScore);
+        if (addedScore > 0)
+            SetFlashTest(addedScore);
         scoreText.text = this.score.ToString();
     }
 

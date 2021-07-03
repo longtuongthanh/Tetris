@@ -6,7 +6,6 @@ using UnityEngine;
 public enum AudioClipEnum
 {
     Music,
-
     Click,
     Congrat,
     Lose,

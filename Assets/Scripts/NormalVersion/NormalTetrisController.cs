@@ -26,10 +26,6 @@ public class NormalTetrisController : MonoBehaviour
         list = new List<int>();
         InitGame();
     }
-    private void Start()
-    {
-        SoundManager.Ins.Play(AudioClipEnum.Music);
-    }
     private void Update() 
     {
         for (int i = 0; i<fakeLoop; i++)
@@ -87,6 +83,7 @@ public class NormalTetrisController : MonoBehaviour
         currentScore = 0;
         currentLine = 0;
         fallTimeCount = 0.0f;
+        SoundManager.Ins.PlayLooped(AudioClipEnum.Music);
         UpdateUI();
     }
     public void RestartGame()

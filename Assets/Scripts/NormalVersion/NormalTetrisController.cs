@@ -17,6 +17,7 @@ public class NormalTetrisController : MonoBehaviour
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public BlockComponent currentBlock;
+    public Animator LineFxAnimator;
     public static NormalTetrisController Instance;
     private List<int> list;
     private void Awake() 

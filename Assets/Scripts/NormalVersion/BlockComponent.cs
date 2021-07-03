@@ -127,6 +127,8 @@ public class BlockComponent : MonoBehaviour
 
     private void DeleteLine(int i)
     {
+        Instantiate(NormalTetrisController.Instance.LineFxAnimator.gameObject, new Vector3(4,i,-3), Quaternion.identity);
+        
         for (int j = 0; j < width; j++)
         {
             Destroy(grid[j,i].gameObject);

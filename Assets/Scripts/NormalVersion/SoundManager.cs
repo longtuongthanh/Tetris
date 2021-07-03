@@ -20,6 +20,9 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource sourcePrefab;
 
+    private static SoundManager ins;
+    public static SoundManager Ins { get => ins; }
+    
     SoundManager()
     {
         enumOrder = new List<AudioClipEnum>();

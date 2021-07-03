@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class PlayerController : TetrisController
 {
+    bool isGameOver;
     // Start is called before the first frame update
     void Start()
     {
-        
+        app.soundManager.PlayLooped(AudioClipEnum.Music);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (app.gameData.gameOver)
+        {
+            if (app.soundManager.audioSources[AudioClipEnum.Music].isPlaying)
+                app.soundManager.StopPlayLooped(AudioClipEnum.Music);
+            isGameOver = true;
             return;
+        }
+        else
+        {
+            if (isGameOver)
+                app.soundManager.PlayLooped(AudioClipEnum.Music);
+            isGameOver = false;
+        }
+
+        if (!app.soundManager.audioSources[AudioClipEnum.Music].isPlaying && !app.gameData.paused)
+            app.soundManager.audioSources[AudioClipEnum.Music].UnPause();
+        if (app.soundManager.audioSources[AudioClipEnum.Music].isPlaying && app.gameData.paused)
+            app.soundManager.audioSources[AudioClipEnum.Music].Pause();
 
         bool changed = false;
         GameData gameData = app.gameData;

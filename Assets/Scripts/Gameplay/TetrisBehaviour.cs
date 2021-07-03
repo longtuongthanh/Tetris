@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TetrisBehaviour : MonoBehaviour
 {
-    protected AppGameplay app = AppGameplay.Instance;
+    protected AppGameplay app { get => AppGameplay.Instance;}
 
     protected const int maxX = 10;
     protected const int maxY = 20;

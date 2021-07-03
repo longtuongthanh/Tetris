@@ -19,6 +19,7 @@ public class AppGameplay : TetrisBehaviour
     public BoardViewer boardViewer;
     public ScoreView scoreView;
     public ButtonView buttonView;
+    public SoundManager soundManager;
 
     public void NotifyBoardChanged()
     {
@@ -28,5 +29,6 @@ public class AppGameplay : TetrisBehaviour
     public void NotifyGameOver()
     {
         buttonView.GameOver();
+        soundManager.Play(AudioClipEnum.Lose);
     }
 }

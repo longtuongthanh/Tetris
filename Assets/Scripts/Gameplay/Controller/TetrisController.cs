@@ -17,6 +17,8 @@ public class TetrisController : TetrisBehaviour
 
             data.kickX = 0;
 
+            app.soundManager.Play(AudioClipEnum.Click);
+
             return true;
         }
         return false;

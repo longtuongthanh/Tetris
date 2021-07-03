@@ -56,6 +56,8 @@ public class DropdownController : TetrisController
             }
             app.gameData.score += score;
             app.gameData.lines += rowCount;
+
+            app.soundManager.Play(AudioClipEnum.Congrat);
         }
 
         return rowCount != 0;

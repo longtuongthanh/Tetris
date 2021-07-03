@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2618,6 +2618,7 @@ GameObject:
   - component: {fileID: 1502063585}
   - component: {fileID: 1502063586}
   - component: {fileID: 1502063587}
+  - component: {fileID: 1502063588}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2685,6 +2686,26 @@ MonoBehaviour:
   gameOverPanel: {fileID: 300563018}
   currentBlock: {fileID: 0}
   LineFxAnimator: {fileID: 5778203140898642973, guid: 50bb5cd0a09b88245a5df4a188752b45,
+    type: 3}
+--- !u!114 &1502063588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502063584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbaca3f4c65ed1499eb9dbf8fd3a06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 9251f27240deedb4d9245d20a9965460, type: 3}
+  - {fileID: 8300000, guid: 7147267adcdf4f4429b91600547d04d6, type: 3}
+  - {fileID: 8300000, guid: 16efdff4a90de1942939879329a541ce, type: 3}
+  - {fileID: 8300000, guid: d8db90a612bca5a43a94779600b3b8ac, type: 3}
+  enumOrder: 00000000010000000200000003000000
+  sourcePrefab: {fileID: 609421522367299133, guid: 6200d89b67ebdc742a33da014552562a,
     type: 3}
 --- !u!1 &1504426979
 GameObject:

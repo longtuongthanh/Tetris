@@ -54,6 +54,9 @@ public class BlockComponent : MonoBehaviour
             FindObjectOfType<Spawner>().SpawnNewBlock();
             return false;
         }
+
+        SoundManager.Ins.Play(AudioClipEnum.Click);
+
         return true;
 
     }
@@ -134,6 +137,8 @@ public class BlockComponent : MonoBehaviour
             Destroy(grid[j,i].gameObject);
             grid[j,i] = null;
         }
+
+        SoundManager.Ins.Play(AudioClipEnum.Congrat);
     }
 
     private void RowDown(int i)

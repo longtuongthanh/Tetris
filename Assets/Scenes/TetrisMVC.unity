@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -245,6 +245,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19fdb515a7fdbd4483a00f1d7a98bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &304540364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1096620668}
+    m_Modifications:
+    - target: {fileID: 2906035555242738196, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906035555733876614, guid: b11a82b5dc9da2543b3e449ca9976352,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b11a82b5dc9da2543b3e449ca9976352, type: 3}
+--- !u!4 &304540365 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2906035555242738203, guid: b11a82b5dc9da2543b3e449ca9976352,
+    type: 3}
+  m_PrefabInstance: {fileID: 304540364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &526174867
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +565,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -630,6 +710,7 @@ Transform:
   m_Children:
   - {fileID: 2006540789}
   - {fileID: 1915928938}
+  - {fileID: 304540365}
   m_Father: {fileID: 276189313}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -921,9 +1002,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 900, y: 1600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

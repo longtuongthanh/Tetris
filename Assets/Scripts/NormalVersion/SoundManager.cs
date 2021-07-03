@@ -25,6 +25,7 @@ public class SoundManager : MonoBehaviour
     
     SoundManager()
     {
+        ins = this;
         enumOrder = new List<AudioClipEnum>();
         foreach (AudioClipEnum item in Enum.GetValues(typeof(AudioClipEnum)))
         {

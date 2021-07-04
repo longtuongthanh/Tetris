@@ -14,4 +14,9 @@ public class StartButton : MonoBehaviour
     {
         SceneManager.LoadScene("TetrisNormal");
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

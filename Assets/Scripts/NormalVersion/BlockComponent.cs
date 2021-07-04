@@ -22,7 +22,7 @@ public class BlockComponent : MonoBehaviour
     {
         foreach(var cell in grid)
         {
-            Destroy(cell.gameObject);
+            if (cell != null) Destroy(cell.gameObject);
         }
         grid = new Transform[width, height];
     }
@@ -35,8 +35,13 @@ public class BlockComponent : MonoBehaviour
     }
     public bool IsLose()
     {
+        int topRow = 19;
         for (int x = 0; x < width; x++)
         {
+            if (grid[x, topRow] != null)
+            {
+                return true;
+            }
         }
         return false;
     }
@@ -51,7 +56,8 @@ public class BlockComponent : MonoBehaviour
             NormalTetrisController.Instance.AddBlockScore();
             AddToGrid();
             CheckLines();
-            FindObjectOfType<Spawner>().SpawnNewBlock();
+            if (IsLose()) NormalTetrisController.Instance.LoseGame();
+            else FindObjectOfType<Spawner>().SpawnNewBlock();
             return false;
         }
 

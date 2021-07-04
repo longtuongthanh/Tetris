@@ -11,33 +11,55 @@ public class NormalTetrisController : MonoBehaviour
     public int currentLine;
     public Text scoreText;
     public Text lineText;
-    public float fallTime;
-    public float fallTimeCount;
+    public float startFallTime;
+    private float currentFallTime;
+    private float fallTimeCount;
+    public float speedUpTime;
+    public float speedUpAmount;
+    private float speedUpTimeCount;
+    public float limitHoldKey;
+    private float limitHoldKeyCount;
     public bool isPauseGame = false;
+    public bool isLoseGame = false;
+    public bool isAllowSpeedUp = true;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public BlockComponent currentBlock;
     public Animator LineFxAnimator;
     public static NormalTetrisController Instance;
+    private List<BlockComponent> blocks;
     private List<int> list;
     private void Awake() 
     {
         if (Instance == null) Instance =  this;
+        blocks = new List<BlockComponent>();
         list = new List<int>();
+    }
+    private void Start() {
         InitGame();
+        
     }
     private void Update() 
     {
-        for (int i = 0; i<fakeLoop; i++)
-        {
-            list.Add(1);
-        }
+        if (isLoseGame) return;
         if (!isPauseGame)
         {
             
-
             fallTimeCount += Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            speedUpTimeCount += Time.deltaTime;
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                limitHoldKeyCount += Time.deltaTime;
+                if (limitHoldKeyCount > limitHoldKey)
+                {
+                    currentBlock.MoveDown();
+                    limitHoldKeyCount = 0.0f;
+                    fallTimeCount = 0.0f;
+                }
+                //fallTimeCount = 0.0f;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 currentBlock.MoveToEnd();
                 fallTimeCount = 0.0f;
@@ -59,12 +81,23 @@ public class NormalTetrisController : MonoBehaviour
 
         }    
 
-        if (fallTimeCount > fallTime)
+        if (fallTimeCount > currentFallTime)
         {
             currentBlock.MoveDown();
             fallTimeCount = 0.0f;
             //currentBlock.mo
         }
+
+        if (isAllowSpeedUp)
+        {
+            if (speedUpTimeCount > speedUpTime)
+            {
+                currentFallTime -= speedUpAmount;
+                speedUpTimeCount = 0.0f;
+            }
+            isAllowSpeedUp = false;
+        }
+
         
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -73,24 +106,45 @@ public class NormalTetrisController : MonoBehaviour
         
     }
 
-    private void CheckLose()
-    {
-        //var grid = BlockComponent.
-    }
-
     public void InitGame()
     {
         currentScore = 0;
         currentLine = 0;
         fallTimeCount = 0.0f;
+        speedUpTimeCount = 0.0f;
+        isPauseGame = false;
+        isLoseGame = false;
+        isAllowSpeedUp = true;
+        currentFallTime = startFallTime;
+        pausePanel.SetActive(false);
+        gameOverPanel.SetActive(false);
         SoundManager.Ins.PlayLooped(AudioClipEnum.Music);
         UpdateUI();
+        FindObjectOfType<Spawner>().SpawnNewBlock();
+    }
+    public void LoseGame()
+    {
+        isLoseGame = true;
+        gameOverPanel.SetActive(true);
+    }
+    public void SpawnBlock(BlockComponent block)
+    {
+        blocks.Add(block);
+        currentBlock = block;
+        isAllowSpeedUp = true;
     }
     public void RestartGame()
     {
-        currentBlock = null;
+        //currentBlock = null;
+        Destroy(currentBlock.gameObject);
         BlockComponent.ClearGrid();
-        FindObjectOfType<Spawner>().SpawnNewBlock();
+        foreach(var block in blocks)
+        {
+            Destroy(block.gameObject);
+        }
+        blocks.Clear();
+        InitGame();
+        
     }
     public void PauseGame()
     {

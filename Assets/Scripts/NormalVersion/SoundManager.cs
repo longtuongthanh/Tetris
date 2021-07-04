@@ -72,7 +72,7 @@ public class SoundManager : MonoBehaviour
         var temp = audioSources[audioClip];
         if (temp.isPlaying)
         {
-            Debug.Log("Audio Clip " + audioClip + " is already playing.");
+            //Debug.Log("Audio Clip " + audioClip + " is already playing.");
             return;
         }
         for (int i = 0; i < numberOfTimes; i++)

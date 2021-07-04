@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    public void StartGame()
+    public void StartMVCVersion()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("TetrisMVC");
+    }
+
+    public void StartNormalVersion()
+    {
+        SceneManager.LoadScene("TetrisNormal");
     }
 }

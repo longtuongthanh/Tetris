@@ -338,6 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4897157416083378300}
   - component: {fileID: 5778203140898642973}
+  - component: {fileID: 1899204494209188439}
   m_Layer: 0
   m_Name: LineFx
   m_TagString: Untagged
@@ -379,6 +380,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1899204494209188439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897157416083378299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b776739a3eb15145bc83d817f6f27ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5333491398787668309
 GameObject:
   m_ObjectHideFlags: 0

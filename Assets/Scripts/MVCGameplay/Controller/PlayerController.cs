@@ -40,7 +40,7 @@ public class PlayerController : TetrisController
             changed = true;
             Move(gameData, -1, 0);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             changed = true;
             Move(gameData, 0, -1);
@@ -54,6 +54,11 @@ public class PlayerController : TetrisController
         {
             changed = true;
             RotateWithKick(gameData, true);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            changed = true;
+            MoveDown();
         }
         if (changed)
             app.NotifyBoardChanged();

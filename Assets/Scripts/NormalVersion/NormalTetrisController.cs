@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class NormalTetrisController : MonoBehaviour
 {
-    private int fakeLoop = 100;
     public int scorePerBlock;
     public int scorePerLine;
     public int currentScore;
